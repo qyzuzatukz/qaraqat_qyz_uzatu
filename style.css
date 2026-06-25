@@ -280,7 +280,7 @@ body, html {
     font-weight: 300;
     line-height: 1.8;
     letter-spacing: 0.5px;
-    padding-bottom: 40px;
+    padding-bottom: 15px;
     color: black;
 }
 
@@ -306,11 +306,11 @@ body, html {
 
 /* --- Третий блок: Маленький разделитель с цветами --- */
 .flowers-divider {
-    height: 190px;
+    height: 200px;
     width: 100%;
     max-width: 450px; /* Чтобы блок не расширялся на компьютерах шире приглашения */
     margin: 0 auto;   /* Центрируем блок на больших экранах */
-    background-color: white; /* Белый фон, чтобы всё сливалось в единую ленту */
+     /* Белый фон, чтобы всё сливалось в единую ленту */
     
 
 }
@@ -333,3 +333,198 @@ body, html {
 }
 
 
+
+
+
+
+/* --- Четвертый блок: Лента даты и таймлайн --- */
+/* --- Четвертый блок: Общие настройки --- */
+/* --- Четвертый блок: Общие настройки --- */
+.date-timeline-screen {
+    width: 100%;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0 60px 0; /* Убрали боковые отступы у самой секции */
+}
+
+.timeline-container {
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+}
+
+.month-title {
+    font-family: 'MyCustomItalic';
+    font-size: 2.5rem;
+    color: #8c765c;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+/* Лента дней по ширине экрана с отступами слева/справа */
+.days-line {
+    display: flex;
+    justify-content: space-between; /* Распределяет элементы равномерно по всей ширине */
+    align-items: center;
+    padding: 0 25px; /* Вот те самые отступы слева и справа */
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 3;
+}
+
+.day-box {
+    width: 45px;
+    height: 45px;
+    border: 1px solid #d3c7b9;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'MyCustomRegular', sans-serif;
+    font-size: 1.1rem;
+    color: #7a6e61;
+    background-color: #ffffff;
+}
+
+/* Красивое аккуратное сердце с цифрой ровно по центру */
+.active-day-heart {
+   width: 80px;  /* Увеличенный размер круга */
+    height: 80px;
+    border: 2px solid #8c765c; /* Красивая благородная рамка */
+    border-radius: 50%;        /* Делает блок идеально круглым */
+    background-color: transparent;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    color: #8c765c;
+    font-weight: bold;
+    font-size: 1.4rem;
+    font-family: 'MyCustomRegular', sans-serif;
+    
+    clip-path: none; /* Полностью отключаем старый сброс формы */
+    padding-bottom: 0; /* Сбрасываем смещение, для круга центровка идеальна */
+
+    /* Подключаем анимацию мерцания: название, длительность (2 секунды), бесконечный повтор */
+    animation: goldGlow 2s infinite ease-in-out;
+}
+
+@keyframes goldGlow {
+    0% {
+        border-color: #8c765c;
+        box-shadow: 0 0 0 0 rgba(140, 118, 92, 0.4);
+        transform: scale(1);
+    }
+    50% {
+        border-color: #dfd4c6; /* В середине цикла рамка становится светлее */
+        box-shadow: 0 0 15px 5px rgba(140, 118, 92, 0.2); /* Появляется нежное свечение вокруг */
+        transform: scale(1.03); /* Круг неуловимо увеличивается, создавая эффект дыхания */
+    }
+    100% {
+        border-color: #8c765c;
+        box-shadow: 0 0 0 0 rgba(140, 118, 92, 0.4);
+        transform: scale(1);
+    }
+}
+
+/* --- Зона изогнутой волны (Увеличили высоту, чтобы не сливалось!) --- */
+.timeline-wave-zone {
+    position: relative;
+    width: 100%;
+    height: 750px; /* Увеличили с 550px до 750px, чтобы дать тексту простор */
+    margin-top: -5px;
+}
+
+/* Веточка растягивается во всю длину и высоту без сжатия */
+.wave-branch-bg {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 75%;
+    height: 100%;
+    object-fit: fill; /* Заставит картинку веточки пропорционально растянуться на все 4 точки */
+    z-index: 1;
+}
+
+/* Общие стили текста */
+.wave-item {
+    position: absolute;
+    z-index: 2;
+    width: 190px;
+}
+
+.time-number {
+    font-family: 'MyCustomItalic', serif;
+    font-size: 2.2rem;
+    color: #8c765c;
+    line-height: 1;
+    margin-bottom: 3px;
+}
+
+.time-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 0.85rem;
+    color: #333333;
+    font-weight: bold; /* Сделаем текст чуть четче, чтобы лучше читался поверх листьев */
+    letter-spacing: 0.5px;
+    line-height: 1.3;
+}
+
+/* --- Точное позиционирование на увеличенной ветке --- */
+
+/* 16:30 — Справа сверху */
+.item-pos-1 {
+    
+    top: 8%;
+    left: 58%;
+    text-align: right;
+}
+
+/* 17:00 — Слева в верхней трети */
+.item-pos-2 {
+    top: 32%;
+    left: 5%;
+    text-align: left;
+}
+
+/* 22:30 — Справа в нижней трети */
+.item-pos-3 {
+    top: 58%;
+    left: 58%;
+    text-align: right;
+}
+
+/* 00:00 — Слева в самом низу */
+.item-pos-4 {
+    top: 84%;
+    left: 5%;
+    text-align: left;
+}
+
+/* --- Адаптивность для мобильных экранов --- */
+@media (max-width: 480px) {
+    .days-line { padding: 0 15px; }
+    .day-box { width: 40px; height: 40px; font-size: 1rem; }
+    .active-day-heart { 
+        .active-day-heart {
+        width: 65px;  /* На смартфонах делаем чуть компактнее, чтобы не двигать соседние дни */
+        height: 65px;
+        font-size: 1.2rem;
+    }
+     }
+    
+    .timeline-wave-zone { height: 680px; } /* На смартфонах высота пропорционально уменьшается */
+    .wave-item { width: 145px; }
+    .time-number { font-size: 1.8rem; }
+    .time-text { font-size: 0.75rem; }
+    
+    .item-pos-1 { top: 7%; right: 4%; }
+    .item-pos-2 { top: 31%; left: 4%; }
+    .item-pos-3 { top: 56%; right: 4%; }
+    .item-pos-4 { top: 82%; left: 4%; }
+}

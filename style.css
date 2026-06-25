@@ -1,0 +1,335 @@
+
+@font-face {
+    font-family: 'MyCustomItalic'; /* Имя, которое мы сами придумываем для шрифта */
+    src: url('13\ English\ Script.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+
+
+
+
+
+
+
+
+/* --- Общие настройки --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    overflow-x: hidden;
+    background-color: #ffffff; /* Родной белый цвет для продолжения сайта */
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --- Главный экран --- */
+.hero-screen {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+/* --- Контейнер для фонового ФОТО --- */
+.image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.back-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: center;
+}
+
+/* Плавный белый градиент, уходящий внизу в плотный белый цвет */
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Сместили начало проявления белого цвета с 60% на 53%, */
+    /* благодаря чему плавное размытие начинается выше */
+    background: linear-gradient(
+        to bottom, 
+        rgba(255, 255, 255, 0) 0%, 
+        rgba(255, 255, 255, 0) 54%, 
+        rgba(255, 255, 255, 0.7) 72%, 
+        rgba(255, 255, 255, 1) 100%
+    );
+}
+
+/* --- Контентная область --- */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 60px 35px 50px 35px; 
+}
+
+/* --- Текст: Сверху справа --- */
+.header-text {
+    align-self: flex-end;
+    text-align: right;
+}
+
+.bride-name {
+    font-family: "Fleur De Leah", cursive;
+  font-weight: 400;
+  font-style: normal;
+    font-size: 7.4rem;
+    color: #ffffff;
+    line-height: 1.1;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.event-title {
+    font-family: "Italianno", cursive;
+  font-weight: 400;
+  font-style: normal;
+    font-size: 2.3rem;
+    color: #ffffff;
+    margin-top: 2px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Кнопка музыки: Снизу по центру --- */
+.music-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.music-toggle {
+    position: relative;
+    width: 90px;
+    height: 90px;
+    background: rgba(0, 0, 0, 0.2); /* Слегка затемненная кнопка */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); 
+}
+
+.music-toggle:active {
+    transform: scale(0.95);
+}
+
+/* Центральный треугольник (Play) — теперь ЧИСТО БЕЛЫЙ */
+.play-icon {
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 14px solid #ffffff; /* Белый цвет */
+    margin-left: 4px;
+    transition: all 0.3s ease;
+}
+
+/* Иконка паузы (две полоски) — тоже ЧИСТО БЕЛАЯ */
+.music-toggle.playing .play-icon {
+    width: 12px;
+    height: 14px;
+    border: none;
+    border-left: 4px solid #ffffff;
+    border-right: 4px solid #ffffff;
+    margin-left: 0;
+}
+
+/* --- Крутящийся текст вокруг кнопки --- */
+.spinning-text {
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    width: 120px;
+    height: 120px;
+    animation: rotateText 10s linear infinite;
+    pointer-events: none; 
+}
+
+.spinning-text path {
+    fill: transparent;
+}
+
+/* Делаем буквы темными, чтобы они идеально читались поверх белого градиента */
+.spinning-text text {
+    font-family: Arial, sans-serif;
+    font-size: 8.5px;
+    fill: rgba(0, 0, 0, 0.65); 
+    letter-spacing: 2px;
+}
+
+@keyframes rotateText {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.music-toggle.paused .spinning-text {
+    animation-play-state: paused;
+}
+
+/* --- АДАПТИВНОСТЬ --- */
+@media (max-width: 480px) {
+    .hero-content { padding: 50px 25px 40px 25px; }
+    .bride-name { font-size: 2.8rem; }
+    .event-title { font-size: 1.9rem; }
+    .music-toggle { width: 80px; height: 80px; }
+    .spinning-text { width: 110px; height: 110px; top: -15px; left: -15px; }
+}
+
+@media (min-width: 481px) {
+    .hero-screen {
+        max-width: 450px; 
+        box-shadow: 0 0 30px rgba(0,0,0,0.15);
+    }
+}
+
+
+/* --- Вторая страница: Приглашение --- * ################################################################## */
+.invitation-screen {
+    width: 100%;
+    /* Убрали min-height: 100vh, чтобы страница не растягивалась искусственно вниз */
+    background-color: #ffffff; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Уменьшили верхний отступ до 10px, чтобы текст шел сразу за первой страницей */
+    
+}
+
+/* Контейнер для контента (ограничиваем ширину на ПК) */
+.invitation-content {
+    width: 100%;
+    max-width: 450px; /* Чтобы текст не разъезжался на компьютере */
+    text-align: center;
+    color: #8C5A3C; /* Приятный темно-серый цвет для текста (вместо жесткого черного) */
+}
+
+/* Блок обращения (Изящный курсив) */
+.guests-call {
+    font-family: 'MyCustomItalic', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.8;
+    padding-top: 40px;
+    margin-bottom: 20px;
+    color: #8C5A3C;
+}
+
+/* Основной блок приглашения */
+.main-invitation-text {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sub-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.6;
+    letter-spacing: 1px;
+    color: black;
+}
+
+/* Имя невесты на второй странице */
+.bride-title-second {
+    font-family: "MyCustomItalic", cursive;
+  font-weight: 400;
+  font-style: normal;
+    font-size: 3rem;
+    color: #8C5A3C;
+    margin: 10px 0;
+}
+
+.description-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.8;
+    letter-spacing: 0.5px;
+    padding-bottom: 40px;
+    color: black;
+}
+
+/* --- Адаптивность для мобильных устройств --- */
+@media (max-width: 480px) {
+    .invitation-screen {
+        padding: 10px 12px;
+    }
+    .guests-call {
+        font-size: 1.35rem;
+        line-height: 1.7;
+        margin-bottom: 30px;
+    }
+    .sub-text, .description-text {
+        font-size: 1.05rem;
+        line-height: 1.6;
+    }
+    .bride-title-second {
+        font-size: 2.4rem;
+    }
+}
+
+
+/* --- Третий блок: Маленький разделитель с цветами --- */
+.flowers-divider {
+    height: 190px;
+    width: 100%;
+    max-width: 450px; /* Чтобы блок не расширялся на компьютерах шире приглашения */
+    margin: 0 auto;   /* Центрируем блок на больших экранах */
+    background-color: white; /* Белый фон, чтобы всё сливалось в единую ленту */
+    
+
+}
+
+.divider-image {
+    height: 100%;
+    width: 100%;
+}
+
+/* --- Настройка адаптивности для телефонов --- */
+@media (max-width: 480px) {
+    .flowers-divider {
+        padding: 5px 0 10px 0; /* Чуть уменьшаем отступы на маленьких смартфонах */
+    }
+    .divider-image {
+        height: 100%;
+        width: 100%;
+        max-height: 210px; /* На экранах поменьше делаем цветы еще компактнее */
+    }
+}
+
+

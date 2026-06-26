@@ -1,7 +1,7 @@
 
 @font-face {
     font-family: 'MyCustomItalic'; /* Имя, которое мы сами придумываем для шрифта */
-    src: url('13\ English\ Script.ttf') format('truetype');
+    src: url('KZ_Parsek.ttf') format('truetype');
     font-weight: normal;
     font-style: italic;
 }

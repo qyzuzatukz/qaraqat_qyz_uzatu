@@ -342,10 +342,10 @@ body, html {
 /* --- Четвертый блок: Общие настройки --- */
 .date-timeline-screen {
     width: 100%;
-    background-color: #ffffff;
+   
     display: flex;
     justify-content: center;
-    padding: 20px 0 60px 0; /* Убрали боковые отступы у самой секции */
+    padding: 10px 0 20px 0; /* Убрали боковые отступы у самой секции */
 }
 
 .timeline-container {
@@ -483,6 +483,7 @@ body, html {
     top: 8%;
     left: 58%;
     text-align: right;
+    
 }
 
 /* 17:00 — Слева в верхней трети */
@@ -528,3 +529,387 @@ body, html {
     .item-pos-3 { top: 56%; right: 4%; }
     .item-pos-4 { top: 82%; left: 4%; }
 }
+
+
+
+
+/* --- Пятый блок: Место проведения (Цветы снизу) --- */
+.location-screen {
+    height: 730px;
+    background-color: #ffffff;
+    width: 100%;
+    /* background-color: #ffffff; */
+    display: flex;
+    justify-content: center;
+    padding: 10px 20px 40px 20px; /* Сделали верхний отступ меньше, так как цветов сверху нет */
+   
+}
+
+.location-container {
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Заголовок Мекен-жайымыз */
+.location-title {
+    font-family: 'MyCustomItalic', serif;
+    font-size: 2.4rem;
+    color: #8c765c;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+/* Текст адреса */
+.location-address {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: #2b2b2b;
+    line-height: 1.6;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    
+}
+
+/* Кнопка-иконка 2GIS */
+.map-button {
+    display: inline-block;
+    transition: transform 0.2s ease;
+    text-decoration: none;
+    margin-bottom: 35px; /* Отступ от иконки до нижних цветов */
+}
+
+.map-button:hover { transform: scale(1.08); }
+.map-button:active { transform: scale(0.95); }
+
+.gis-icon {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+/* Нижний букет цветов */
+
+.img_flowww{
+    height: 120px;
+    width: 100%;
+    
+}
+
+
+
+
+.location-bottom-flowers {
+    height: 100%;
+    width: 100%;
+    
+}
+
+/* --- Адаптивность для мобильных устройств --- */
+@media (max-width: 480px) {
+    .location-screen {
+        padding: 15px 15px 30px 15px;
+    }
+    .location-title {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+    .location-address {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 20px;
+    }
+    .map-button {
+        margin-bottom: 25px;
+    }
+    .gis-icon {
+        width: 48px;
+        height: 48px;
+    }
+    .location-bottom-flowers {
+        max-width: 80%; /* Аккуратный размер на экранах смартфонов */
+    }
+}
+
+
+
+/* --- Зона имен родителей внутри цветов --- */
+.parents-zone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Верхняя арка цветов */
+.parents-flowers-top {
+    width: 100%;
+    max-width: 320px; /* Сделали чуть пошире, чтобы текст красиво заходил внутрь */
+    height: auto;
+    object-fit: contain;
+    margin-bottom: -15px; /* Отрицательный отступ, чтобы притянуть текст ближе к цветам */
+}
+
+/* Блок с текстом родителей */
+.parents-text-box {
+    position: relative;
+    z-index: 2;
+    padding: 2px 0;
+}
+
+.parents-title {
+    font-family: 'MyCustomItalic', serif;
+    font-size: 2.2rem;
+    color: #8c765c;
+    font-weight: 400;
+    
+}
+
+.parents-names {
+    font-family: 'MyCustomItalic', serif;
+    font-size: 2.4rem;
+    color: #8c765c;
+    font-weight: 400;
+    margin: 0;
+}
+
+/* Нижняя арка цветов */
+.parents-flowers-bottom {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    object-fit: contain;
+    margin-top: -15px; /* Подтягиваем нижние цветы вплотную к именам */
+}
+
+/* --- Адаптивность для мобильных экранов --- */
+@media (max-width: 480px) {
+    .parents-flowers-top {
+        max-width: 260px;
+        margin-bottom: -10px;
+    }
+    .parents-title {
+        font-size: 1.8rem;
+    }
+    .parents-names {
+        font-size: 2rem;
+    }
+    .parents-flowers-bottom {
+        max-width: 260px;
+        margin-top: -10px;
+    }
+}
+
+
+
+
+
+
+
+/* --- АНИМАЦИИ ДЛЯ ЦВЕТОВ И ВЕТОК --- */
+
+/* Назначаем анимацию покачивания для извилистой ветки в 4-м блоке */
+.wave-branch-bg {
+    animation: gentleSway 6s infinite ease-in-out;
+    transform-origin: top center; /* Ветка качается относительно своего начала под сердечком */
+}
+
+/* Назначаем анимацию для верхнего и нижнего букета родителей в 5-м блоке */
+.parents-flowers-top, 
+.parents-flowers-bottom {
+    animation: flowerPulse 8s infinite ease-in-out;
+}
+
+/* Эффект 1: Легкое покачивание влево-вправо для ветки-таймлайна */
+@keyframes gentleSway {
+    0% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+    50% {
+        transform: translateX(-50%) rotate(1.5deg); /* Минимальный поворот, чтобы не ломать сетку текста */
+    }
+    100% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+}
+
+/* Эффект 2: Плавное "дыхание" и покачивание для букетов родителей */
+@keyframes flowerPulse {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+    30% {
+        transform: scale(1.02) rotate(0.5deg); /* Чуть увеличивается и наклоняется */
+    }
+    65% {
+        transform: scale(0.99) rotate(-0.5deg); /* Чуть уменьшается */
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+
+
+
+
+
+/* --- Шестой блок: Таймер --- */
+.countdown-screen {
+    height: 250px;
+    width: 100%;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    padding: 30px 20px 60px 20px;
+    margin-top: -80px;
+}
+
+.countdown-container {
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+}
+
+/* Заголовок "Той салтанатына дейін:" */
+.countdown-title {
+    font-family: 'MyCustomItalic', serif;
+    font-size: 2.3rem;
+    color: #8c765c;
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+
+/* Общая строка таймера */
+.timer-display {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+/* Каждая группа (цифра + подпись) */
+.timer-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70px; /* Фиксированная ширина, чтобы цифры не прыгали при смене */
+}
+
+/* Тонкие изящные цифры как на макете */
+.timer-number {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 2.8rem;
+    font-weight: 300;
+    color: #2b2b2b;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+/* Разделительные двоеточия */
+.timer-separator {
+    font-family: 'MyCustomRegular', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: #2b2b2b;
+    line-height: 1;
+    padding-top: 5px;
+}
+
+/* Подписи снизу */
+.timer-label {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #8c765c;
+    font-weight: 400;
+}
+
+/* --- Мобильная адаптация --- */
+@media (max-width: 480px) {
+    .countdown-screen {
+        padding: 20px 15px 45px 15px;
+    }
+    .countdown-title {
+        font-size: 1.9rem;
+        margin-bottom: 30px;
+    }
+    .timer-item {
+        width: 55px;
+    }
+    .timer-number {
+        font-size: 2.2rem;
+    }
+    .timer-separator {
+        font-size: 1.8rem;
+    }
+    .timer-label {
+        font-size: 0.8rem;
+    }
+}
+
+
+/* --- Седьмой блок: Финальная бабочка внизу --- */
+.final-butterfly-block {
+    width: 100%;
+    background-color: #ffffff; /* Цвет фона подстраивай под свой сайт */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px 60px 20px; /* Отступ снизу, чтобы бабочка не прижималась к краю экрана */
+}
+
+.bottom-butterfly {
+    width: 250px; /* Красивый, аккуратный размер бабочки по центру */
+    height: 180px;
+    opacity: 0.85; /* Легкая, нежная прозрачность, чтобы она выглядела воздушнее */
+}
+
+/* Адаптация для мобильных экранов */
+@media (max-width: 480px) {
+    .final-butterfly-block {
+        padding-bottom: 40px;
+    }
+    .bottom-butterfly {
+        width: 165px; /* Чуть уменьшаем размер на смартфонах */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- СИСТЕМА ЖИВОЙ 3D-БАБОЧКИ --- */
+
+/* 1. Главный контейнер: отвечает за глобальный хаотичный полет по экрану */

@@ -6,6 +6,13 @@
     font-style: italic;
 }
 
+@font-face {
+    font-family: 'MyCustomItalic2'; /* Имя, которое мы сами придумываем для шрифта */
+    src: url('13\ English\ Script.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
 
 
 
@@ -264,9 +271,9 @@ body, html {
 
 /* Имя невесты на второй странице */
 .bride-title-second {
-    font-family: "MyCustomItalic", cursive;
-  font-weight: 400;
-  font-style: normal;
+    font-family: 'MyCustomItalic', serif;
+    font-style: italic;
+    font-weight: 400;
     font-size: 3rem;
     color: #8C5A3C;
     margin: 10px 0;
@@ -355,7 +362,9 @@ body, html {
 }
 
 .month-title {
-    font-family: 'MyCustomItalic';
+    font-family: 'MyCustomItalic', serif;
+    font-style: italic;
+    font-weight: 400;
     font-size: 2.5rem;
     color: #8c765c;
     font-weight: 400;
@@ -717,14 +726,14 @@ body, html {
 
 /* Назначаем анимацию покачивания для извилистой ветки в 4-м блоке */
 .wave-branch-bg {
-    animation: gentleSway 6s infinite ease-in-out;
+    animation: gentleSway 3s infinite ease-in-out;
     transform-origin: top center; /* Ветка качается относительно своего начала под сердечком */
 }
 
 /* Назначаем анимацию для верхнего и нижнего букета родителей в 5-м блоке */
 .parents-flowers-top, 
 .parents-flowers-bottom {
-    animation: flowerPulse 8s infinite ease-in-out;
+    animation: flowerPulse 5s infinite ease-in-out;
 }
 
 /* Эффект 1: Легкое покачивание влево-вправо для ветки-таймлайна */
@@ -871,7 +880,7 @@ body, html {
 
 .bottom-butterfly {
     width: 250px; /* Красивый, аккуратный размер бабочки по центру */
-    height: 180px;
+    height: 250px;
     opacity: 0.85; /* Легкая, нежная прозрачность, чтобы она выглядела воздушнее */
 }
 

@@ -460,6 +460,7 @@ body, html {
 
 .time-number {
     font-family: 'MyCustomItalic2', serif;
+    font-style: italic;
     font-size: 2.2rem;
     color: #8c765c;
     line-height: 1;
@@ -559,6 +560,7 @@ body, html {
 /* Заголовок Мекен-жайымыз */
 .location-title {
     font-family: 'MyCustomItalic2', serif;
+    font-style: italic;
     font-size: 2.4rem;
     color: #8c765c;
     font-weight: 400;
@@ -668,6 +670,7 @@ body, html {
 
 .parents-title {
     font-family: 'MyCustomItalic2', serif;
+    font-style: italic;
     font-size: 2.2rem;
     color: #8c765c;
     font-weight: 400;
@@ -676,6 +679,7 @@ body, html {
 
 .parents-names {
     font-family: 'MyCustomItalic2', serif;
+    font-style: italic;
     font-size: 2.4rem;
     color: #8c765c;
     font-weight: 400;
@@ -783,6 +787,7 @@ body, html {
 /* Заголовок "Той салтанатына дейін:" */
 .countdown-title {
     font-family: 'MyCustomItalic2', serif;
+    font-style: italic;
     font-size: 2.3rem;
     color: #8c765c;
     font-weight: 400;

@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function updateCountdown() {
         // Устанавливаем целевую дату: 26 июля 2026 года
-        const targetDate = new Date("August 26, 2026 00:00:00").getTime();
+        const targetDate = new Date("August 28, 2026 18:00:00").getTime();
         const now = new Date().getTime();
         const difference = targetDate - now;
 

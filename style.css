@@ -1,14 +1,7 @@
 
 @font-face {
-    font-family: 'MyCustomItalic'; /* Имя, которое мы сами придумываем для шрифта */
-    src: url('KZ_Parsek.ttf') format('truetype');
-    font-weight: normal;
-    font-style: italic;
-}
-
-@font-face {
     font-family: 'MyCustomItalic2'; /* Имя, которое мы сами придумываем для шрифта */
-    src: url('13\ English\ Script.ttf') format('truetype');
+    src: url('EnglishScript.ttf') format('truetype');
     font-weight: normal;
     font-style: italic;
 }
@@ -241,7 +234,7 @@ body, html {
 
 /* Блок обращения (Изящный курсив) */
 .guests-call {
-    font-family: 'MyCustomItalic', serif;
+    font-family: 'MyCustomItalic2', serif;
     font-style: italic;
     font-weight: 400;
     font-size: 1.6rem;
@@ -271,7 +264,7 @@ body, html {
 
 /* Имя невесты на второй странице */
 .bride-title-second {
-    font-family: 'MyCustomItalic', serif;
+    font-family: 'MyCustomItalic2', serif;
     font-style: italic;
     font-weight: 400;
     font-size: 3rem;
@@ -362,7 +355,7 @@ body, html {
 }
 
 .month-title {
-    font-family: 'MyCustomItalic', serif;
+    font-family: 'MyCustomItalic2', serif;
     font-style: italic;
     font-weight: 400;
     font-size: 2.5rem;
@@ -466,7 +459,7 @@ body, html {
 }
 
 .time-number {
-    font-family: 'MyCustomItalic', serif;
+    font-family: 'MyCustomItalic2', serif;
     font-size: 2.2rem;
     color: #8c765c;
     line-height: 1;
@@ -565,7 +558,7 @@ body, html {
 
 /* Заголовок Мекен-жайымыз */
 .location-title {
-    font-family: 'MyCustomItalic', serif;
+    font-family: 'MyCustomItalic2', serif;
     font-size: 2.4rem;
     color: #8c765c;
     font-weight: 400;
@@ -674,7 +667,7 @@ body, html {
 }
 
 .parents-title {
-    font-family: 'MyCustomItalic', serif;
+    font-family: 'MyCustomItalic2', serif;
     font-size: 2.2rem;
     color: #8c765c;
     font-weight: 400;
@@ -682,7 +675,7 @@ body, html {
 }
 
 .parents-names {
-    font-family: 'MyCustomItalic', serif;
+    font-family: 'MyCustomItalic2', serif;
     font-size: 2.4rem;
     color: #8c765c;
     font-weight: 400;
@@ -789,7 +782,7 @@ body, html {
 
 /* Заголовок "Той салтанатына дейін:" */
 .countdown-title {
-    font-family: 'MyCustomItalic', serif;
+    font-family: 'MyCustomItalic2', serif;
     font-size: 2.3rem;
     color: #8c765c;
     font-weight: 400;
@@ -880,7 +873,7 @@ body, html {
 
 .bottom-butterfly {
     width: 250px; /* Красивый, аккуратный размер бабочки по центру */
-    height: 250px;
+    height: 200px;
     opacity: 0.85; /* Легкая, нежная прозрачность, чтобы она выглядела воздушнее */
 }
 
